@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,18 +19,21 @@ public class ProfilePage extends PageObject {
     @FindBy(xpath = "//span[contains(text(), 'Выйти')]")
     private WebElement logoutBtn;
 
+    @Step("Get user name")
     public String getUserName() {
         CustomWaiters customWaiters = new CustomWaiters();
         customWaiters.waitUntilVisible(userLoginName);
         return userLoginName.getText();
     }
 
+    @Step("Click on user name")
     public void ClickOnUserName() {
         CustomWaiters customWaiters = new CustomWaiters();
         customWaiters.waitUntilClickable(userLoginName);
         userLoginName.click();
     }
 
+    @Step("Logout")
     public void userLogout() {
         ClickOnUserName();
         CustomWaiters customWaiters = new CustomWaiters();

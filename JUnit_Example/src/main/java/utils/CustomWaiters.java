@@ -13,7 +13,7 @@ public class CustomWaiters {
     protected WebDriver driver = InitialDriver.getInstance().getDriver();
 
     private WebElement getWebElement(ExpectedCondition<WebElement> webElementExpectedCondition) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.pollingEvery(Duration.ofMillis(1));
         wait.ignoring(NoSuchElementException.class);
         wait.ignoring(StaleElementReferenceException.class);

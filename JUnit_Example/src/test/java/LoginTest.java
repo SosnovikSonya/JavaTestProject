@@ -1,16 +1,17 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
 
 public class LoginTest extends BaseTest {
 
     @Test
-   // @DisplayName("Test methodethod to check login with valid credentials")
+    @DisplayName("Test method to check login with valid credentials")
     public void yandexLogin_ValidCredentials() {
         loginPage.login(validLogin, validPassword);
         Assert.assertEquals("User name is not equal to login", validLogin, profilePage.getUserName());
     }
 
     @Test
-   // @DisplayName("Test method to check logout")
+    @DisplayName("Test method to check logout")
     public void yandexLogout() {
         loginPage.login(validLogin, validPassword);
         String loginUrl = driver.getCurrentUrl();
