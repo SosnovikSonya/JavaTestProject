@@ -57,9 +57,9 @@ public class SimpleParameterizedTest {
         System.out.println(day);
     }
 
-    @DisplayName("Display name of container")
-    @ParameterizedTest(name = "{index} ==> ''{0}'' is {1} day of week")
-    @CsvSource({ "Monday, 1", "Tuesday, 2", "'Wednesday', 3" })
+    @DisplayName("Display name of Parameterized Test")
+    @ParameterizedTest(name = "{index} ==> {0} is {1} day of week")
+    @CsvSource({ "Monday, 1", "Tuesday, 2", "Wednesday, 3" })
     void csvSourceWithCustomDisplayNames(String day, int number) {
     }
 }

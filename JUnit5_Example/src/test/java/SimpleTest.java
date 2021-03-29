@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -29,11 +31,19 @@ public class SimpleTest {
         System.out.println("Repeat...");
     }
 
-    @Order(2)
+    @Order(4)
     @Test
     @DisplayName("Disabled test")
     @Disabled("Not implemented yet")
     void disabledTest() {
+    }
+
+    @Test
+    @Order(2)
+    @Timeout(5)
+    void timeoutTest() throws InterruptedException {
+        Thread.sleep(6000);
+        //Assertions.assertTimeout(Duration.ofMillis(1000), () -> Thread.sleep(10000));
     }
 
     @AfterEach
